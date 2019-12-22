@@ -20,7 +20,7 @@ class AdminPostManager extends Manager
         $update = $db->prepare("SELECT * FROM posts WHERE id= ?" );
         $update->execute(array($id));
 
-        return $update;
+        return $update->fetchAll()[0];
     }
 
     public function updatePost($id, $title, $content){

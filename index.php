@@ -2,6 +2,7 @@
 
 require('controller/frontend.php');
 require('controller/backend.php');
+
 session_start();
 try {
     if (isset($_GET['action'])) {
@@ -38,20 +39,14 @@ try {
                         } else {
                         throw new Exception('Tous les champs ne sont pas remplis !');
                         }
-                    } elseif (isset($_GET['edit']) && $_GET['edit'] > 0){
+                    } elseif (isset($_GET['edit'])){
                         $id = $_GET['edit'];
                         $edit_state = true;
-                        $db = new \PDO('mysql:host=localhost:3308;dbname=oc4;charset=utf8', 'root', 'root');
-                        $rec =  $db->prepare('SELECT * FROM posts WHERE id=$id') ;
-                        $rec-> execute(array($id));
-                        $record =  $rec->fetch();
-                        $title = $record['title'];
-                        $content = $record['content'];
-                        $id = $record['id'];
-                        echo ("$id");
-                        echo ("$title");
-                        echo ("$content");
-                        getPostToUpdate($id);
+                        require_once('model/AdminPostManager.php');
+                        $adminPostManager = new \OpenClassrooms\oc_project_4\Model\AdminPostManager();
+                        $post = $adminPostManager->getPostToUpdate($id);
+                        var_dump($post);
+                        die;
                             if (isset($_POST['update'])) {
                                 $title = $_POST['title'];
                                 $content = $_POST['content'];

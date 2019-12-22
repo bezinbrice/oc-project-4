@@ -25,12 +25,7 @@ function createPost($title, $content){
     }
 }
 
-function getPostToUpdate($id){
-    $adminPostManager = new \OpenClassrooms\oc_project_4\Model\AdminPostManager();
 
-    $getPost = $adminPostManager->getPostToUpdate($id);
-
-}
 
 function updatePost($id, $title, $content){
     $adminPostManager = new \OpenClassrooms\oc_project_4\Model\AdminPostManager();
