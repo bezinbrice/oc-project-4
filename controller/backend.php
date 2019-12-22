@@ -20,6 +20,27 @@ function createPost($title, $content){
         throw new Exception('Impossible d\'ajouter le nouveau post !');
     }
     else {
+        $_SESSION['msg'] = "La news a été postée avec succès !";
+        header('Location: index.php?action=admin');
+    }
+}
+
+function getPostToUpdate($id){
+    $adminPostManager = new \OpenClassrooms\oc_project_4\Model\AdminPostManager();
+
+    $getPost = $adminPostManager->getPostToUpdate($id);
+
+}
+
+function updatePost($id, $title, $content){
+    $adminPostManager = new \OpenClassrooms\oc_project_4\Model\AdminPostManager();
+    $update = $adminPostManager->updatePost($id, $title, $content);
+
+    if ($update === false) {
+        throw new Exception('Impossible de modifier le post !');
+    }
+    else {
+        $_SESSION['msg'] = "La news a été modifiée avec succès !";
         header('Location: index.php?action=admin');
     }
 }

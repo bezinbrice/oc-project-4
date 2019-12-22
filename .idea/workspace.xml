@@ -45,10 +45,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\wamp64\www\oc-project-4\web" />
+      <recent name="D:\wamp64\www\oc-project-4\web\css" />
+      <recent name="D:\wamp64\www\oc-project-4" />
       <recent name="D:\wamp64\www\oc-project-4\view\frontend" />
       <recent name="D:\wamp64\www\oc-project-4\model" />
-      <recent name="D:\wamp64\www\oc-project-4\public\css" />
-      <recent name="D:\wamp64\www\oc-project-4\controller" />
     </key>
   </component>
   <component name="ServiceViewManager">
@@ -73,7 +74,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1576344261170</updated>
-      <workItem from="1576344262675" duration="38672000" />
+      <workItem from="1576344262675" duration="62366000" />
     </task>
     <servers />
   </component>
@@ -89,10 +90,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="320" y="100" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1576839030849" />
-    <state x="563" y="365" key="NewPhpFileDialog" timestamp="1576839157092">
+    <state x="563" y="365" key="NewPhpFileDialog" timestamp="1576945002948">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="563" y="365" key="NewPhpFileDialog/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1576839157092" />
+    <state x="563" y="365" key="NewPhpFileDialog/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1576945002948" />
     <state x="563" y="365" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1576601983635" />
     <state x="546" y="56" key="SettingsEditor" timestamp="1576344276932">
       <screen x="0" y="0" width="1536" height="824" />
