@@ -32,20 +32,15 @@ try {
                 break;
 
             case('admin'):
-                admin();
-                    if (isset($_POST['save'])){
+                    admin();
+                        if (isset($_POST['save'])){
                         if (!empty($_POST['title']) && !empty($_POST['content'])) {
                         createPost($_POST['title'], $_POST['content']);
                         } else {
                         throw new Exception('Tous les champs ne sont pas remplis !');
                         }
                     } elseif (isset($_GET['edit'])){
-                        $id = $_GET['edit'];
-                        $edit_state = true;
-                        require_once('model/AdminPostManager.php');
-                        $adminPostManager = new \OpenClassrooms\oc_project_4\Model\AdminPostManager();
-                        $post = $adminPostManager->getPostToUpdate($id);
-                        var_dump($post);
+                            getPostToUpdate($_GET['edit']);
                         die;
                             if (isset($_POST['update'])) {
                                 $title = $_POST['title'];

@@ -25,6 +25,16 @@ function createPost($title, $content){
     }
 }
 
+function getPostToUpdate($id){
+
+    $edit_state = true;
+    require_once('model/AdminPostManager.php');
+    $adminPostManager = new \OpenClassrooms\oc_project_4\Model\AdminPostManager();
+    $post = $adminPostManager->getPostToUpdate($id);
+    $title = $post['title'];
+    $content = $post['content'];
+    var_dump($post);
+}
 
 
 function updatePost($id, $title, $content){

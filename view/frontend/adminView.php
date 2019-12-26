@@ -1,10 +1,9 @@
-<?php $title = 'Mon blog'; ?>
+<?php $titleSite = 'Mon blog'; ?>
 <?php
 $edit_state = false;
-$title = "";
-$content = "";
 $id = 0;
-
+$title="";
+$content="";
 ?>
 
 <?php ob_start(); ?>
@@ -19,17 +18,30 @@ $id = 0;
         ?>
     </div>
 <?php endif ?>
-
+<?php
+require_once('model/AdminPostManager.php');
+$adminPostManager = new \OpenClassrooms\oc_project_4\Model\AdminPostManager();
+if(isset($_GET['edit'])){
+    $id = $_GET['edit'];
+    $edit_state = true;
+    $post = $adminPostManager->getPostToUpdate($id);
+}
+else{
+    $post['id'] = "";
+    $post['title'] = "";
+    $post['content'] = "";
+}
+?>
 <div>
     <form action="index.php?action=admin" method="post">
-        <input type="hidden" name="id" value="<?= $id; ?>"/>
+        <input type="hidden" name="id" value="<?= $post['id']; ?>"/>
         <div class="input-group">
             <label for="title">Titre</label><br />
-            <input type="text" id="title" name="title" value="<?= $title; ?>" />
+            <input type="text" id="title" name="title" value="<?= $post['title']; ?>" placeholder="Enter your title"/>
         </div>
         <div class="input-group">
             <label for="content">News</label><br />
-            <textarea id="content" name="content"><?= $content; ?></textarea>
+            <textarea id="content" name="content"><?= $post['content']; ?></textarea>
         </div>
         <div class="input-group">
             <?php if($edit_state == false): ?>
@@ -40,6 +52,8 @@ $id = 0;
         </div>
     </form>
 </div>
+
+
 
 <?php
 while ($data = $posts->fetch())
