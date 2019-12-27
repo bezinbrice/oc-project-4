@@ -32,23 +32,28 @@ try {
                 break;
 
             case('admin'):
-                    admin();
-                        if (isset($_POST['save'])){
+                if (!isset($_GET['edit'])){
+                    admin(0);
+                    if (isset($_POST['save'])){
                         if (!empty($_POST['title']) && !empty($_POST['content'])) {
-                        createPost($_POST['title'], $_POST['content']);
+                            createPost($_POST['title'], $_POST['content']);
                         } else {
-                        throw new Exception('Tous les champs ne sont pas remplis !');
+                            throw new Exception('Tous les champs ne sont pas remplis !');
                         }
-                    } elseif (isset($_GET['edit'])){
-                            getPostToUpdate($_GET['edit']);
-                        die;
-                            if (isset($_POST['update'])) {
-                                $title = $_POST['title'];
-                                $content = $_POST['content'];
-                                $id = $_POST['id'];
-                                updatePost($id, $title, $content);
-                            }
                     }
+                } elseif (isset($_GET['edit'])){
+                    admin($_GET['edit']);
+                        if (isset($_GET['edit']) && isset($_POST['update'])) {
+                                    if (!empty($_POST['title']) && !empty($_POST['content'])) {
+                                        updatePost($_GET['edit'],$_POST['title'], $_POST['content']);
+                                        var_dump($_GET['edit']);
+                                    } else {
+                                        throw new Exception('Tous les champs ne sont pas remplis !');
+                                    }
+                        }  elseif (isset($_GET['edit']) && isset($_POST['delete'])){
+                            deletePost($_GET['edit']);
+                        }
+                }
                 break;
         }
     }

@@ -25,8 +25,16 @@ class AdminPostManager extends Manager
 
     public function updatePost($id, $title, $content){
         $db = $this->dbConnect();
-        $update = $db->prepare("UPDATE `posts` SET `title` = '$title', `content`='$content' WHERE id=$id" );
+        $update = $db->prepare("UPDATE posts SET title= $title, content=$content WHERE id=$id" );
         $updateLines= $update->execute(array($id, $title, $content));
+
+        return $updateLines;
+    }
+
+    public function deletePost($id){
+        $db = $this->dbConnect();
+        $delete = $db->prepare("DELETE FROM posts WHERE id=$id" );
+        $updateLines= $delete->execute(array($id));
 
         return $updateLines;
     }

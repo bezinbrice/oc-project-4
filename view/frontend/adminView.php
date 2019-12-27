@@ -1,10 +1,4 @@
-<?php $titleSite = 'Mon blog'; ?>
-<?php
-$edit_state = false;
-$id = 0;
-$title="";
-$content="";
-?>
+<?php $titleSite = 'Page Admin'; ?>
 
 <?php ob_start(); ?>
 <h1>Le blog de JeanJean !</h1>
@@ -18,41 +12,29 @@ $content="";
         ?>
     </div>
 <?php endif ?>
-<?php
-require_once('model/AdminPostManager.php');
-$adminPostManager = new \OpenClassrooms\oc_project_4\Model\AdminPostManager();
-if(isset($_GET['edit'])){
-    $id = $_GET['edit'];
-    $edit_state = true;
-    $post = $adminPostManager->getPostToUpdate($id);
-}
-else{
-    $post['id'] = "";
-    $post['title'] = "";
-    $post['content'] = "";
-}
-?>
+
+
 <div>
     <form action="index.php?action=admin" method="post">
-        <input type="hidden" name="id" value="<?= $post['id']; ?>"/>
+        <input type="hidden" name="id" value="<?= $postUpdate['id']; ?>"/>
         <div class="input-group">
             <label for="title">Titre</label><br />
-            <input type="text" id="title" name="title" value="<?= $post['title']; ?>" placeholder="Enter your title"/>
+            <input type="text" id="title" name="title" value="<?= $postUpdate['title']; ?>" placeholder="Enter your title"/>
         </div>
         <div class="input-group">
             <label for="content">News</label><br />
-            <textarea id="content" name="content"><?= $post['content']; ?></textarea>
+            <textarea id="content" name="content"><?= $postUpdate['content']; ?></textarea>
         </div>
         <div class="input-group">
-            <?php if($edit_state == false): ?>
+            <?php if($postUpdate['id'] == 0): //On vérifie si l'on est dans l'update (donc si la news a un id) ?>
                 <button type="submit" name="save" class="btn">Publier</button>
             <?php else: ?>
                 <button type="submit" name="update" class="btn">Éditer</button>
+                <button type="submit" name="delete" class="btn">Supprimer</button>
             <?php endif ?>
         </div>
     </form>
 </div>
-
 
 
 <?php
@@ -61,7 +43,7 @@ while ($data = $posts->fetch())
 ?>
     <div class="news">
         <h3>
-            <?= htmlspecialchars($data['title']) ?>
+            <?= $data['title'] ?>
             <em>le <?= $data['creation_date_fr'] ?></em>
         </h3>
 
@@ -71,7 +53,7 @@ while ($data = $posts->fetch())
             <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Commentaires</a></em>
         </p>
 
-        <button><a href="index.php?action=admin&amp;edit=<?= $data['id']; ?>"<strong>Modifier</strong></button>
+        <button><a href="index.php?action=admin&amp;edit=<?= $data['id']; ?>"<strong>Modifier</strong></a> </button>
 
     </div>
 

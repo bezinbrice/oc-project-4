@@ -4,9 +4,20 @@ require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
 require_once('model/AdminPostManager.php');
 
-function admin(){
-    $postManager = new \OpenClassrooms\oc_project_4\Model\PostManager();
-    $posts = $postManager->getPosts();
+function admin($id){
+    if ($id == 0){
+        $postManager = new \OpenClassrooms\oc_project_4\Model\PostManager();
+        $posts = $postManager->getPosts();
+        $postUpdate['id'] = 0;
+        $postUpdate['title'] = '';
+        $postUpdate['content'] = '';
+    }else {
+        $adminPostManager = new \OpenClassrooms\oc_project_4\Model\AdminPostManager();
+        $postUpdate = $adminPostManager->getPostToUpdate($id);
+
+        $postManager = new \OpenClassrooms\oc_project_4\Model\PostManager();
+        $posts = $postManager->getPosts();
+    }
 
     require('view/frontend/adminView.php');
 }
@@ -25,27 +36,28 @@ function createPost($title, $content){
     }
 }
 
-function getPostToUpdate($id){
-
-    $edit_state = true;
-    require_once('model/AdminPostManager.php');
-    $adminPostManager = new \OpenClassrooms\oc_project_4\Model\AdminPostManager();
-    $post = $adminPostManager->getPostToUpdate($id);
-    $title = $post['title'];
-    $content = $post['content'];
-    var_dump($post);
-}
-
 
 function updatePost($id, $title, $content){
     $adminPostManager = new \OpenClassrooms\oc_project_4\Model\AdminPostManager();
     $update = $adminPostManager->updatePost($id, $title, $content);
-
+    var_dump($update);
     if ($update === false) {
         throw new Exception('Impossible de modifier le post !');
     }
     else {
         $_SESSION['msg'] = "La news a été modifiée avec succès !";
+        header('Location: index.php?action=admin');
+    }
+}
+
+function deletePost($id){
+    $adminPostManager = new \OpenClassrooms\oc_project_4\Model\AdminPostManager();
+    $delete = $adminPostManager->deletePost($id);
+    if ($delete === false) {
+        throw new Exception("Impossible d'effacer le post !");
+    }
+    else {
+        $_SESSION['msg'] = "La news a été effacée avec succès !";
         header('Location: index.php?action=admin');
     }
 }
