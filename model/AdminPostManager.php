@@ -33,7 +33,7 @@ class AdminPostManager extends Manager
 
     public function deletePost($id){
         $db = $this->dbConnect();
-        $delete = $db->prepare("DELETE FROM posts WHERE id=$id" );
+        $delete = $db->prepare("DELETE FROM `posts` WHERE `posts`.`id`= ?" );
         $updateLines= $delete->execute(array($id));
 
         return $updateLines;

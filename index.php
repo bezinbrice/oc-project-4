@@ -32,7 +32,15 @@ try {
                 break;
 
             case('admin'):
-                if (!isset($_GET['edit'])){
+                if (isset($_GET['edit']) && isset($_POST['update'])) {
+                    if (!empty($_POST['title']) && !empty($_POST['content'])) {
+                        updatePost($_GET['edit'], $_POST['title'], $_POST['content']);
+                        var_dump($_GET['edit']);
+                    } else {
+                        throw new Exception('Tous les champs ne sont pas remplis !');
+                    }
+                }
+                elseif (!isset($_GET['edit'])){
                     admin(0);
                     if (isset($_POST['save'])){
                         if (!empty($_POST['title']) && !empty($_POST['content'])) {
@@ -43,18 +51,22 @@ try {
                     }
                 } elseif (isset($_GET['edit'])){
                     admin($_GET['edit']);
-                        if (isset($_GET['edit']) && isset($_POST['update'])) {
+                    var_dump($_GET['edit']);
+                        if (isset($_POST['update'])) {
                                     if (!empty($_POST['title']) && !empty($_POST['content'])) {
                                         updatePost($_GET['edit'],$_POST['title'], $_POST['content']);
                                         var_dump($_GET['edit']);
                                     } else {
                                         throw new Exception('Tous les champs ne sont pas remplis !');
                                     }
-                        }  elseif (isset($_GET['edit']) && isset($_POST['delete'])){
+                        }  elseif (isset($_POST['delete'])){
                             deletePost($_GET['edit']);
+                            var_dump($_GET['edit']);
+                            throw new Exception('Tous les champs ne sont pas remplis !');
                         }
                 }
                 break;
+
         }
     }
     else {

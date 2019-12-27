@@ -3,6 +3,7 @@
 <?php ob_start(); ?>
 <h1>Le blog de JeanJean !</h1>
 <p>Espace administrateur</p>
+<p><a href="index.php">Retour à la liste des billets</a></p>
 
 <?php if(isset($_SESSION['msg'])): ?>
     <div id="message">
