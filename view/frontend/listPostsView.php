@@ -3,7 +3,11 @@
 <?php ob_start(); ?>
 <h1>Le blog de JeanJean !</h1>
 <p>Derniers billets du blog :</p>
-<button><a href="index.php?action=admin">Admin</a></button>
+<form action="index.php?action=admin" method="post">
+    <p>
+        <input type="password" name="password" />
+        <input type="submit" value="Admin" />
+    </p>
 
 
 <?php

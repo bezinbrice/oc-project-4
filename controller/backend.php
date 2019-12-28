@@ -4,6 +4,12 @@ require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
 require_once('model/AdminPostManager.php');
 
+/**function isAdmin($isAuthenticaded){
+    if ($isAuthenticaded == true){
+        require('view/frontend/adminView.php');
+    }
+} */
+
 function admin($id){
     if ($id == 0){
         $postManager = new \OpenClassrooms\oc_project_4\Model\PostManager();
@@ -27,7 +33,7 @@ function createPost($title, $content){
 
     $newPost = $adminPostManager->createPost($title, $content);
 
-    if ($newPost === false) {
+    if (!isset ($newPost)) {
         throw new Exception('Impossible d\'ajouter le nouveau post !');
     }
     else {
@@ -40,8 +46,8 @@ function createPost($title, $content){
 function updatePost($id, $title, $content){
     $adminPostManager = new \OpenClassrooms\oc_project_4\Model\AdminPostManager();
     $update = $adminPostManager->updatePost($id, $title, $content);
-    var_dump($update);
-    if ($update === false) {
+
+   if (!isset ($update)) {
         throw new Exception('Impossible de modifier le post !');
     }
     else {
@@ -53,7 +59,8 @@ function updatePost($id, $title, $content){
 function deletePost($id){
     $adminPostManager = new \OpenClassrooms\oc_project_4\Model\AdminPostManager();
     $delete = $adminPostManager->deletePost($id);
-    if ($delete === false) {
+
+    if (!isset ($delete)) {
         throw new Exception("Impossible d'effacer le post !");
     }
     else {

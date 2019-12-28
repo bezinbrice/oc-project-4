@@ -1,7 +1,7 @@
 <?php $title = htmlspecialchars($postUpdate['title']); ?>
 
 <?php ob_start(); ?>
-<h1>Modification de post</h1>
+<h1>Modification de post!</h1>
 <p><a href="index.php">Retour à la liste des billets</a></p>
 
     <div>

@@ -16,7 +16,7 @@
 
 
 <div>
-    <form action="index.php?action=admin" method="post">
+    <form action="index.php?action=admin&amp;edit=<?= $postUpdate['id']; ?>" method="post">
         <input type="hidden" name="id" value="<?= $postUpdate['id']; ?>"/>
         <div class="input-group">
             <label for="title">Titre</label><br />

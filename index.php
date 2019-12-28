@@ -31,42 +31,53 @@ try {
                 }
                 break;
 
-            case('admin'):
-                if (isset($_GET['edit']) && isset($_POST['update'])) {
-                    if (!empty($_POST['title']) && !empty($_POST['content'])) {
-                        updatePost($_GET['edit'], $_POST['title'], $_POST['content']);
-                        var_dump($_GET['edit']);
-                    } else {
-                        throw new Exception('Tous les champs ne sont pas remplis !');
-                    }
+           /** case('isAdmin'):
+                if (isset($_POST['password']) && $_POST['password'] ==  "pass"){
+                    $isAuthenticated = true;
                 }
-                elseif (!isset($_GET['edit'])){
-                    admin(0);
-                    if (isset($_POST['save'])){
+                elseif (!$_POST['password'] ==  "pass"){
+                    throw new Exception('Attention le mot de passe est incorrect !');
+                }
+                break; */
+
+            case('admin'):
+
+                    if(!isset($_GET['edit'])){
+                        admin(0);
+
+                    } elseif(isset($_POST['save'])){
                         if (!empty($_POST['title']) && !empty($_POST['content'])) {
                             createPost($_POST['title'], $_POST['content']);
+                            var_dump($_POST['title']);
                         } else {
                             throw new Exception('Tous les champs ne sont pas remplis !');
                         }
-                    }
-                } elseif (isset($_GET['edit'])){
-                    admin($_GET['edit']);
-                    var_dump($_GET['edit']);
+                    } elseif (isset($_GET['edit'])){
+                        admin($_GET['edit']);
+
                         if (isset($_POST['update'])) {
-                                    if (!empty($_POST['title']) && !empty($_POST['content'])) {
-                                        updatePost($_GET['edit'],$_POST['title'], $_POST['content']);
-                                        var_dump($_GET['edit']);
-                                    } else {
-                                        throw new Exception('Tous les champs ne sont pas remplis !');
-                                    }
+                            if (!empty($_POST['title']) && !empty($_POST['content'])) {
+                                updatePost($_GET['edit'],$_POST['title'], $_POST['content']);
+                                /**$id = $_GET['edit'];
+                                $title = $_POST['title'];
+                                $content = $_POST['content'];
+                                $db = new \PDO('mysql:host=localhost:3308;dbname=oc4;charset=utf8', 'root', 'root');
+                                $update = $db->prepare("UPDATE posts SET title= :title, content=:content WHERE id=:id" );
+                                $update->execute(array(':id'=>$id, ':title'=>$title, ':content'=>$content));
+                                $update->fetch();
+                                var_dump($update); */
+
+                            }
+                            else {
+                                throw new Exception('Tous les champs ne sont pas remplis !');
+                            }
                         }  elseif (isset($_POST['delete'])){
                             deletePost($_GET['edit']);
-                            var_dump($_GET['edit']);
                             throw new Exception('Tous les champs ne sont pas remplis !');
                         }
-                }
-                break;
+                    }
 
+                break;
         }
     }
     else {
