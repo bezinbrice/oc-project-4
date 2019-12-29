@@ -17,6 +17,11 @@ function admin($id){
         $postUpdate['id'] = 0;
         $postUpdate['title'] = '';
         $postUpdate['content'] = '';
+       /** if(isset ($_GET['id'])){
+            $commentManager = new \OpenClassrooms\oc_project_4\Model\CommentManager();
+            $comments = $commentManager->getComments($_GET['id']);
+        } */
+
     }else {
         $adminPostManager = new \OpenClassrooms\oc_project_4\Model\AdminPostManager();
         $postUpdate = $adminPostManager->getPostToUpdate($id);
