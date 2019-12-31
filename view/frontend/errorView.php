@@ -9,6 +9,8 @@
 
     <p>Erreur : <?= $errorMessage ?></p>
 
+    <p><a href="index.php">Retour à la liste des billets</a></p>
+
 <?php $content = ob_get_clean(); ?>
 
 <?php require('template.php'); ?>

@@ -4,25 +4,34 @@ require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
 require_once('model/AdminPostManager.php');
 
-/**function isAdmin($isAuthenticaded){
-    if ($isAuthenticaded == true){
-        require('view/frontend/adminView.php');
+function isAdmin(){
+    if(!isset ($_SESSION['admin'])){
+        if(isset($_POST['password']) && $_POST['password'] == "pass"){
+            $_SESSION['admin'] = true;
+            header('Location: index.php?action=admin');
+        } else {
+            throw new Exception('Cette page est réservé à l\'administrateur.');
+        }
     }
-} */
+}
 
 function admin($id){
+    $postManager = new \OpenClassrooms\oc_project_4\Model\PostManager();
+    $posts = $postManager->getPosts();
+
+   /** $commentManager = new \OpenClassrooms\oc_project_4\Model\CommentManager();
+    $comments = $commentManager->getComments($id);
+    var_dump($posts); */
+
     if ($id == 0){
-        $postManager = new \OpenClassrooms\oc_project_4\Model\PostManager();
-        $posts = $postManager->getPosts();
         $postUpdate['id'] = 0;
         $postUpdate['title'] = '';
         $postUpdate['content'] = '';
+
+
     }else {
         $adminPostManager = new \OpenClassrooms\oc_project_4\Model\AdminPostManager();
         $postUpdate = $adminPostManager->getPostToUpdate($id);
-
-        $postManager = new \OpenClassrooms\oc_project_4\Model\PostManager();
-        $posts = $postManager->getPosts();
     }
 
     require('view/frontend/adminView.php');

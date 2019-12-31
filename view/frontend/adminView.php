@@ -3,7 +3,7 @@
 <?php ob_start(); ?>
 <h1>Le blog de JeanJean !</h1>
 <p>Espace administrateur</p>
-<p><a href="index.php">Retour à la liste des billets</a></p>
+<p><a href="index.php" >Quitter la page d'administration</a></p>
 
 <?php if(isset($_SESSION['msg'])): ?>
     <div id="message">
@@ -20,11 +20,11 @@
         <input type="hidden" name="id" value="<?= $postUpdate['id']; ?>"/>
         <div class="input-group">
             <label for="title">Titre</label><br />
-            <input type="text" id="title" name="title" value="<?= $postUpdate['title']; ?>" placeholder="Enter your title"/>
+            <input type="text" id="title" name="title" value="<?= htmlspecialchars($postUpdate['title']); ?>" placeholder="Enter your title"/>
         </div>
         <div class="input-group">
             <label for="content">News</label><br />
-            <textarea id="content" name="content"><?= $postUpdate['content']; ?></textarea>
+            <textarea id="content" name="content"><?= nl2br(htmlspecialchars($postUpdate['content'])); ?></textarea>
         </div>
         <div class="input-group">
             <?php if($postUpdate['id'] == 0): //On vérifie si l'on est dans l'update (donc si la news a un id) ?>
@@ -53,6 +53,7 @@ while ($data = $posts->fetch())
             <br />
             <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Commentaires</a></em>
         </p>
+        
 
         <button><a href="index.php?action=admin&amp;edit=<?= $data['id']; ?>"<strong>Modifier</strong></a> </button>
 
@@ -66,3 +67,4 @@ $posts->closeCursor();
 <?php $content = ob_get_clean(); ?>
 
 <?php require('template.php'); ?>
+
