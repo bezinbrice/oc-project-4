@@ -6,12 +6,12 @@
 
 <div class="news">
     <h3>
-        <?= htmlspecialchars($post['title']) ?>
+        <?= $post['title'] ?>
         <em>le <?= $post['creation_date_fr'] ?></em>
     </h3>
 
     <p>
-        <?= nl2br(htmlspecialchars($post['content'])) ?>
+        <?= nl2br($post['content'])?>
     </p>
 </div>
 
@@ -27,7 +27,7 @@
             <textarea id="comment" name="comment"></textarea>
         </div>
         <div>
-            <input type="submit" />
+            <input type="submit" value="Poster"/>
         </div>
     </form>
 
@@ -36,7 +36,10 @@ while ($comment = $comments->fetch())
 {
 ?>
     <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
-    <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
+    <div>
+        <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
+        <button>Signaler</button>
+    </div>
 <?php
 }
 ?>

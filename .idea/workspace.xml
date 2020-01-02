@@ -23,7 +23,12 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand />
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost-oc4" type="feb32156:DbDataSourceImpl" />
+      </path>
+    </expand>
     <select />
   </component>
   <component name="ProjectId" id="1Uz0kq1BWgJED9ZUDvB9VjiJx83" />
@@ -58,7 +63,12 @@
       <list>
         <serviceView>
           <treeState>
-            <expand />
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:@localhost-oc4" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+            </expand>
             <select />
           </treeState>
         </serviceView>
@@ -77,7 +87,8 @@
       <updated>1576344261170</updated>
       <workItem from="1576344262675" duration="78129000" />
       <workItem from="1577171729670" duration="1210000" />
-      <workItem from="1577346073740" duration="38831000" />
+      <workItem from="1577346073740" duration="44790000" />
+      <workItem from="1577787753737" duration="20370000" />
     </task>
     <servers />
   </component>
@@ -89,10 +100,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="320" y="96" key="#SQL_Resolution_Scopes/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1576515120813" />
-    <state x="468" y="73" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1577515583682">
+    <state x="468" y="73" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1577787828403">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="468" y="73" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1577515583682" />
+    <state x="468" y="73" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1577787828403" />
+    <state width="189" height="457" key="HiddenNamespacesPopup" timestamp="1577884782280">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="189" height="457" key="HiddenNamespacesPopup/0.0.1536.824@0.0.1536.824" timestamp="1577884782280" />
     <state x="563" y="365" key="NewPhpFileDialog" timestamp="1577350457620">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -102,10 +117,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="546" y="56" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1576344276932" />
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1577346122114">
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1577787763403">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1577346122114" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1577787763403" />
     <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1577171740335" />
   </component>
 </project>
