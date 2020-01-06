@@ -21,7 +21,7 @@ function admin($id){
 
     $commentManager = new \OpenClassrooms\oc_project_4\Model\CommentManager();
     $comments = $commentManager->getComments($id);
- /**    $adminPostManager = new \OpenClassrooms\oc_project_4\Model\AdminPostManager();
+ /**  $adminPostManager = new \OpenClassrooms\oc_project_4\Model\AdminPostManager();
         $posts = $adminPostManager->getAllPosts(); */
 
     if ($id == 0){
@@ -75,6 +75,18 @@ function deletePost($id){
     }
     else {
         $_SESSION['msg'] = "La news a été effacée avec succès !";
+        header('Location: index.php?action=admin');
+    }
+}
+
+function deleteComment($commentId){
+    $adminPostManager = new \OpenClassrooms\oc_project_4\Model\AdminPostManager();
+    $deleteCom = $adminPostManager->deleteComment($commentId);
+    if (!isset ($deleteCom)) {
+        throw new Exception("Impossible d'effacer le post !");
+    }
+    else {
+        $_SESSION['msg'] = "Le commentaire a été effacée avec succès !";
         header('Location: index.php?action=admin');
     }
 }

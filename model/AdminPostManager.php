@@ -37,13 +37,21 @@ class AdminPostManager extends Manager
         return $delete->fetch();
     }
 
-    /**public function getAllPosts()
+    public function getAllPosts()
     {
         $db = $this->dbConnect();
-        $req = $db->query('SELECT posts.id, posts.title, posts.content, DATE_FORMAT(posts.creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr, comments.id, comments.author, comments.comment, DATE_FORMAT(comments.comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM posts JOIN comments ON posts.id = comments.post_id ORDER BY comments.comment_date DESC');
+        $req = $db->query('SELECT comments.id, comments.author, comments.comment, posts.id, posts.title, posts.content
+      FROM comments INNER JOIN posts ON comments.post_id = posts.id ORDER BY posts.creation_date DESC LIMIT 0, 5');
         return $req;
 
 
-    } */
+    }
+
+    public function deleteComment($id){
+        $db = $this->dbConnect();
+        $deleteCom = $db->prepare("DELETE FROM comments WHERE id= :id" );
+        $deleteCom->execute(array(':id'=>$id));
+        return $deleteCom->fetch();
+    }
 
 }

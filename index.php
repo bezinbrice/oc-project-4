@@ -14,7 +14,9 @@ try {
             case('post'):
                 if (isset($_GET['id']) && $_GET['id'] > 0) {
                     post();
-                } else {
+                } /**elseif ( $_GET['comment_id'] && $_GET['post_id']){
+                report($_GET['comment_id'], $_GET['post_id']);
+            } */else{
                     throw new Exception('aucun identifiant de billet envoyé');
                 }
                 break;
@@ -29,6 +31,13 @@ try {
                 } else {
                     throw new Exception('Aucun identifiant de billet envoyé');
                 }
+                break;
+
+            case('report'):
+                    report($_GET['comment_id'], $_GET['post_id']);
+                    if(isset($_SESSION['admin']) && isset($_POST['deleteComment'])){
+                        deleteComment($_GET['comment_id']);
+                    }
                 break;
 
             case('admin'):
@@ -46,7 +55,6 @@ try {
                                 }
                             } elseif (isset($_GET['edit'])){
                                 admin($_GET['edit']);
-
                                 if (isset($_POST['update'])) {
                                     if (!empty($_POST['title']) && !empty($_POST['content'])) {
                                         updatePost($_GET['edit'],$_POST['title'], $_POST['content']);
@@ -66,7 +74,7 @@ try {
         }
     }
     else {
-        listPosts();
+        home();
     }
 }
 
