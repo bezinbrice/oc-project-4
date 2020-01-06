@@ -3,6 +3,13 @@
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
 
+function home()
+{
+    $postManager = new \OpenClassrooms\oc_project_4\Model\PostManager();
+    $lastPost = $postManager->getLastPost();
+
+    require('view/frontend/home.php');
+}
 function listPosts()
 {
     $postManager = new \OpenClassrooms\oc_project_4\Model\PostManager();
@@ -18,6 +25,7 @@ function post()
 
     $post = $postManager->getPost($_GET['id']);
     $comments = $commentManager->getComments($_GET['id']);
+    $commentManager = new \OpenClassrooms\oc_project_4\Model\CommentManager();
 
     require('view/frontend/postView.php');
 }
@@ -35,3 +43,27 @@ function addComment($postId, $author, $comment)
         header('Location: index.php?action=post&id=' . $postId);
     }
 }
+
+function report($commentId, $postId){
+    $commentManager = new \OpenClassrooms\oc_project_4\Model\CommentManager();
+    $report = $commentManager->reportComment($commentId);
+
+    header('Location: index.php?action=post&id=' . $postId);
+
+}
+/**
+function post($commentId, $postId)  VERSION avec report intégré
+{
+    $postManager = new \OpenClassrooms\oc_project_4\Model\PostManager();
+    $commentManager = new \OpenClassrooms\oc_project_4\Model\CommentManager();
+
+    $post = $postManager->getPost($_GET['id']);
+    $comments = $commentManager->getComments($_GET['id']);
+    $commentManager = new \OpenClassrooms\oc_project_4\Model\CommentManager();
+
+    $report = $commentManager->reportComment($commentId);
+    if(isset ($report)){
+        header('Location: index.php?action=post&id=' . $postId);
+    }
+    require('view/frontend/postView.php');
+} */

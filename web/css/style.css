@@ -1,18 +1,25 @@
-h1, h3
+#background-home{
+    width:100%;
+    background-image: url('../images/background-home.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
+    background-attachment: fixed;
+}
+
+h1, h2
 {
     text-align:center;
-    color: blue;
+    color: white;
+    text-shadow:2px 2px #333;
 }
 h3
 {
-    background-color:black;
-    color:white;
-    font-size:0.9em;
+    font-size:1.3em;
     margin-bottom:0;
 }
 .news p
 {
-    background-color:#CCCCCC;
     margin-top:0;
 }
 .news
@@ -36,4 +43,14 @@ a
     border: 1px solid #3c763d;
     width: 50%;
     text-align: center;
+}
+
+#post-comment{
+    padding-top: 3.5%;
+}
+
+            /* ADMIN PAGE */
+
+.admin-hero{
+    background-image: url('../images/admin-hero.png');
 }

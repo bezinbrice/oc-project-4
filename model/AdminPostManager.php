@@ -37,13 +37,41 @@ class AdminPostManager extends Manager
         return $delete->fetch();
     }
 
-    /**public function getAllPosts()
+    public function getAllPosts()
     {
         $db = $this->dbConnect();
-        $req = $db->query('SELECT posts.id, posts.title, posts.content, DATE_FORMAT(posts.creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr, comments.id, comments.author, comments.comment, DATE_FORMAT(comments.comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM posts JOIN comments ON posts.id = comments.post_id ORDER BY comments.comment_date DESC');
+        $req = $db->query('SELECT comments.id, comments.author, comments.comment, posts.id, posts.title, posts.content
+      FROM comments INNER JOIN posts ON comments.post_id = posts.id ORDER BY posts.creation_date DESC LIMIT 0, 5');
         return $req;
 
+    }
 
-    } */
+    public function deleteComment($id){
+        $db = $this->dbConnect();
+        $deleteCom = $db->prepare("DELETE FROM comments WHERE comment_id= :id" );
+        $deleteCom->execute(array(':id'=>$id));
+        return $deleteCom->fetch();
+    }
+
+    public function countReport(){
+        $db = $this->dbConnect();
+        $nbReport = $db->prepare("SELECT COUNT(*) AS nbreports FROM comments WHERE report=1");
+        $nbReport->execute();
+        return $nbReport->fetch();
+    }
+
+    public function getReportComments(){
+        $db = $this->dbConnect();
+        $getReportCom = $db->prepare("SELECT comments.comment_id, comments.author, comments.comment, posts.id, posts.title, posts.content, DATE_FORMAT(comment_date, '%d/%m/%Y à %Hh%imin%ss') AS comment_date_fr, comments.report  FROM comments INNER JOIN posts ON comments.post_id = posts.id WHERE comments.report = 1 ORDER BY comment_date DESC" );
+        $getReportCom->execute();
+        return $getReportCom;
+    }
+
+    public function cancelReport($id){
+        $db = $this->dbConnect();
+        $report = $db->prepare('UPDATE comments SET report=0 WHERE comment_id=:id' );
+        $report->execute(array(':id'=>$id));
+        return $report->fetch();
+    }
 
 }
