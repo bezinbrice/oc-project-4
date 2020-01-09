@@ -10,10 +10,21 @@ function home()
 
     require('view/frontend/home.php');
 }
-function listPosts()
+
+function totalPosts()
 {
+    /**$postManager = new \OpenClassrooms\oc_project_4\Model\PostManager();
+    $posts = $postManager->getPosts(); */
+
     $postManager = new \OpenClassrooms\oc_project_4\Model\PostManager();
-    $posts = $postManager->getPosts();
+    $nb_posts =  $postManager->getTotalPosts();
+    return $nb_posts;
+}
+
+function listPosts($actualPage, $nb_posts_page, $nb_page){
+    $firstPost=($actualPage-1)*$nb_posts_page;
+    $postManager = new \OpenClassrooms\oc_project_4\Model\PostManager();
+    $posts = $postManager->getPosts($firstPost, $nb_posts_page);
 
     require('view/frontend/listPostsView.php');
 }
