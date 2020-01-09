@@ -15,25 +15,11 @@ function isAdmin(){
     }
 }
 
-function admin($id){
+function admin(){
     $postManager = new \OpenClassrooms\oc_project_4\Model\PostManager();
-    $posts = $postManager->getPosts();
-
-    $commentManager = new \OpenClassrooms\oc_project_4\Model\CommentManager();
-    $comments = $commentManager->getComments($id);
- /**  $adminPostManager = new \OpenClassrooms\oc_project_4\Model\AdminPostManager();
-        $posts = $adminPostManager->getAllPosts(); */
-
-    if ($id == 0){
-        $postUpdate['id'] = 0;
-        $postUpdate['title'] = '';
-        $postUpdate['content'] = '';
-
-
-    }else {
-        $adminPostManager = new \OpenClassrooms\oc_project_4\Model\AdminPostManager();
-        $postUpdate = $adminPostManager->getPostToUpdate($id);
-    }
+    $posts = $postManager->getPostsSample();
+    $adminPostManager = new \OpenClassrooms\oc_project_4\Model\AdminPostManager();
+    $nbReport = $adminPostManager->countReport();
 
     require('view/frontend/adminView.php');
 }
@@ -48,8 +34,19 @@ function createPost($title, $content){
     }
     else {
         $_SESSION['msg'] = "La news a été postée avec succès !";
-        header('Location: index.php?action=admin');
+        echo '<script language="Javascript">
+           <!--
+                 document.location.replace("index.php?action=admin");
+           // -->
+     </script>';
     }
+}
+
+function getPostToUpdate($id){
+    $adminPostManager = new \OpenClassrooms\oc_project_4\Model\AdminPostManager();
+    $postUpdate = $adminPostManager->getPostToUpdate($id);
+
+    require('view/frontend/updatePostView.php');
 }
 
 
@@ -62,7 +59,11 @@ function updatePost($id, $title, $content){
     }
     else {
         $_SESSION['msg'] = "La news a été modifiée avec succès !";
-        header('Location: index.php?action=admin');
+        echo '<script language="Javascript">
+           <!--
+                 document.location.replace("index.php?action=admin");
+           // -->
+     </script>';
     }
 }
 
@@ -75,7 +76,11 @@ function deletePost($id){
     }
     else {
         $_SESSION['msg'] = "La news a été effacée avec succès !";
-        header('Location: index.php?action=admin');
+        echo '<script language="Javascript">
+           <!--
+                 document.location.replace("index.php?action=admin");
+           // -->
+     </script>';
     }
 }
 
@@ -87,6 +92,42 @@ function deleteComment($commentId){
     }
     else {
         $_SESSION['msg'] = "Le commentaire a été effacée avec succès !";
-        header('Location: index.php?action=admin');
+        header('Location: index.php?action=reports');
+    }
+}
+
+function getReportComments(){
+    $adminPostManager = new \OpenClassrooms\oc_project_4\Model\AdminPostManager();
+    $getReportCom = $adminPostManager->getReportComments();
+    if (!isset ($getReportCom)) {
+        throw new Exception("Impossible d'afficher la page !");
+    } elseif(!$getReportCom->fetch()){
+        $_SESSION['msg'] = "Aucun commentaire n'a été signalé !";
+    }
+
+    require('view/frontend/adminCommentaryView.php');
+}
+
+function cancelReport($commentId){
+    $adminPostManager = new \OpenClassrooms\oc_project_4\Model\AdminPostManager();
+    $report = $adminPostManager->cancelReport($commentId);
+    if (!isset ($report)) {
+        throw new Exception("Impossible d'annuler le signalement !");
+    }
+    else {
+        $_SESSION['msg'] = "Le commentaire a été épargné !";
+        header('Location: index.php?action=reports');
+    }
+}
+
+function moderateComment($commentId){
+    $adminPostManager = new \OpenClassrooms\oc_project_4\Model\AdminPostManager();
+    $mod = $adminPostManager->moderateComment($commentId);
+    if (!isset ($mod)) {
+        throw new Exception("Impossible d'annuler le signalement !");
+    }
+    else {
+        $_SESSION['msg'] = "Le commentaire a été modéré";
+        header('Location: index.php?action=reports');
     }
 }

@@ -46,7 +46,6 @@ function addComment($postId, $author, $comment)
 
 function report($commentId, $postId){
     $commentManager = new \OpenClassrooms\oc_project_4\Model\CommentManager();
-    var_dump($commentId);
     $report = $commentManager->reportComment($commentId);
 
     header('Location: index.php?action=post&id=' . $postId);

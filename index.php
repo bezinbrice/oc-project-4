@@ -1,22 +1,18 @@
 <?php
-
 require('controller/frontend.php');
 require('controller/backend.php');
-
 session_start();
 try {
     if (isset($_GET['action'])) {
         switch ($_GET['action']) {
             case('listPosts'):
-                listPosts();
+               listPosts();
                 break;
 
             case('post'):
                 if (isset($_GET['id']) && $_GET['id'] > 0) {
                     post();
-                } /**elseif ( $_GET['comment_id'] && $_GET['post_id']){
-                report($_GET['comment_id'], $_GET['post_id']);
-            } */else{
+                } else{
                     throw new Exception('aucun identifiant de billet envoyé');
                 }
                 break;
@@ -37,6 +33,10 @@ try {
                     report($_GET['comment_id'], $_GET['post_id']);
                     if(isset($_SESSION['admin']) && isset($_POST['deleteComment'])){
                         deleteComment($_GET['comment_id']);
+                    } elseif(isset($_SESSION['admin']) && isset($_POST['cancelReport'])){
+                        cancelReport($_GET['comment_id']);
+                    } elseif(isset($_SESSION['admin']) && isset($_POST['moderateComment'])){
+                        moderateComment($_GET['comment_id']);
                     }
                 break;
 
@@ -45,16 +45,16 @@ try {
                         isAdmin();
                     } elseif(isset($_SESSION['admin'])){
                             if(!isset($_GET['edit'])){
-                                admin(0);
-                            } elseif(isset($_POST['save'])){
-                                if (!empty($_POST['title']) && !empty($_POST['content'])) {
-                                    createPost($_POST['title'], $_POST['content']);
-                                    var_dump($_POST['title']);
-                                } else {
-                                    throw new Exception('Tous les champs ne sont pas remplis !');
+                                admin();
+                                if(isset($_POST['save'])) {
+                                    if (!empty($_POST['title']) && !empty($_POST['content'])) {
+                                        createPost($_POST['title'], $_POST['content']);
+                                    } else {
+                                        throw new Exception('Tous les champs ne sont pas remplis !');
+                                    }
                                 }
                             } elseif (isset($_GET['edit'])){
-                                admin($_GET['edit']);
+                                getPostToUpdate($_GET['edit']);
                                 if (isset($_POST['update'])) {
                                     if (!empty($_POST['title']) && !empty($_POST['content'])) {
                                         updatePost($_GET['edit'],$_POST['title'], $_POST['content']);
@@ -66,10 +66,24 @@ try {
                                     deletePost($_GET['edit']);
                                     throw new Exception('Tous les champs ne sont pas remplis !');
                                 }
-                            }
+                            }/** elseif(isset($_POST['reports'])){
+                                $db = new \PDO('mysql:host=localhost:3308;dbname=oc4;charset=utf8', 'root', 'root');
+                                $getReportCom = $db->prepare("SELECT id, author, comment, DATE_FORMAT(comment_date, '%d/%m/%Y à %Hh%imin%ss') AS comment_date_fr, report  FROM comments WHERE report = 1 ORDER BY comment_date DESC" );
+                                $getReportCom->execute();
+                                require('view/frontend/adminCommentaryView.php');
+                                header('Location: index.php?action=admin&adminCommentaryView');
+                            } */
                         } else {
                         throw new Exception('Espace réservé à l\'administrateur');
                     }
+                break;
+            case('reports'):
+                if(isset($_SESSION['admin'])){
+                    getReportComments();
+                }
+                else{
+                    throw new Exception('Espace réservé à l\'administrateur');
+                }
                 break;
         }
     }

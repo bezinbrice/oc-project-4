@@ -1,17 +1,30 @@
 #background-home{
     width:100%;
-    background-image: url('../images/background-home.jpg');
+    background-image: url('../images/alaska-2964658_1920.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size:cover;
     background-attachment: fixed;
 }
 
-h1, h2
+.image-home-hero{
+    padding-top: 1%!important;
+}
+
+.blockquote, .blockquote-footer{
+    color: white;
+}
+
+.title-white-shadow
 {
     text-align:center;
     color: white;
     text-shadow:2px 2px #333;
+}
+.title-gray-shadow{
+    text-align:center;
+    color: gray;
+    text-shadow:2px 2px darkslategray;
 }
 h3
 {
@@ -34,6 +47,39 @@ a
     color: blue;
 }
 
+.home--pitch-card{
+    margin-top: 4%;
+    margin-bottom: 4%;
+}
+
+            /* COMMENTARY */
+
+#post-comment{
+    padding-top: 3.5%;
+}
+
+            /* ADMIN PAGE */
+
+.admin-hero{
+    background-image: url('../images/chap-img-1.jpg');
+    background-position: right;
+    background-repeat: no-repeat;
+    margin-bottom: 5%;
+}
+
+.admin-hero--container{
+    padding: 2% 4%;
+}
+
+.admin--quit-page-link{
+    color: gold;
+    text-shadow:2px 2px #333;
+}
+
+.admin--quit-page-link:hover{
+    color: #60A5FF;
+}
+
 #message{
     margin: 30px auto;
     padding: 10px;
@@ -45,12 +91,8 @@ a
     text-align: center;
 }
 
-#post-comment{
-    padding-top: 3.5%;
-}
-
-            /* ADMIN PAGE */
-
-.admin-hero{
-    background-image: url('../images/admin-hero.png');
+.admin--old-chapter{
+    color: black;
+    margin-bottom: 3%;
+    text-align: center;
 }

@@ -1,8 +1,8 @@
 <?php $titleSite = $post['title']; ?>
 
 <?php ob_start(); ?>
-<h1>Le blog de JeanJean avec des commentaires !</h1>
-<p><a href="index.php">Retour à la liste des billets</a></p>
+<h1 class="title-white-shadow">Le blog de JeanJean avec des commentaires !</h1>
+<p><a href="index.php?action=listPosts">Retour à la liste des billets</a></p>
 
 <div class="news">
     <h5>
@@ -38,13 +38,9 @@ while ($comment = $comments->fetch())
     <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
     <div>
         <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
-        <form action="index.php?action=report&amp;comment_id=<?= $comment['id'] ?>&amp;post_id=<?= $post['id'] ?>"
-              method="post">
-            <?php var_dump($comment['id']);?>
+        <form action="index.php?action=report&amp;comment_id=<?= $comment['comment_id'] ?>&amp;post_id=<?= $post['id'] ?>" method="post">
             <?php if ($comment['report'] == 0): ?> <!-- On vérifie si le commentaire a été signalé -->
-                <button type="submit" name="report" class="btn">Signaler</button>
-            <?php elseif (isset($_SESSION['admin'])): ?>
-                <button type="submit" name="deleteComment" class="btn">Supprimer</button>
+                <button type="submit" name="report" class="btn btn-danger">Signaler</button>
             <?php else: ?>
             <p>Ce commentaire a été signalé</p>
         </form>

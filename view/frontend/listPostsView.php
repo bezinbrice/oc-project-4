@@ -3,9 +3,10 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h1 class="my-4">Le blog de JeanJean !</h1>
-            <h2 class="my-4">Derniers billets du blog</h2>
-<?php
+            <h1 class="my-4 title-white-shadow">Le blog de JeanJean !</h1>
+            <h2 class="my-4 title-white-shadow">Derniers billets du blog</h2>
+
+            <?php
 while ($data = $posts->fetch())
 {
 ?>
@@ -28,11 +29,12 @@ while ($data = $posts->fetch())
 }
 $posts->closeCursor();
 ?>
+
             <ul class="pagination justify-content-center mb-4">
-                <li class="page-item">
+                <li class="page-item disabled">
                     <a class="page-link" href="#">&larr; Derniers parus</a>
                 </li>
-                <li class="page-item disabled">
+                <li class="page-item">
                     <a class="page-link" href="#">Anciens chapitres &rarr;</a>
                 </li>
             </ul>
