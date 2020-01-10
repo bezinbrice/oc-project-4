@@ -62,7 +62,7 @@ while ($data = $posts->fetch())
                                 <p class="card-text"><?= $data['sample'] ?></p><br>
                                 <div class="d-flex justify-content-between">
                                     <a href="index.php?action=post&amp;id=<?= $data['id'] ?>" class="btn btn-primary">Lire le chapitre &rarr;</a>
-                                    <button><a href="index.php?action=admin&amp;edit=<?= $data['id']; ?>"<strong>Modifier</strong></a> </button>
+                                    <button type="button" class="btn btn-outline-info"><a href="index.php?action=admin&amp;edit=<?= $data['id']; ?>"<strong>Modifier</strong></a> </button>
                                     <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?> #post-comment" >Commentaires</a></em>
                                 </div>
                             </div>
