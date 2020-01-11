@@ -20,7 +20,7 @@
                         <div class="input-group">
                             <input type="text" id="title" name="title" placeholder="Titre du chapitre"/>
                         </div>
-                        <div class="input-group">
+                        <div class="input-group adminView--form--content">
                             <textarea id="content" name="content"></textarea>
                         </div>
                         <div class="input-group">
@@ -42,7 +42,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h2 class="admin--old-chapter">Anciens chapitres parus</h2>
+            <h2 class="admin--old-chapter">Derniers chapitres postés</h2>
         </div>
     </div>
 </div>
@@ -60,10 +60,10 @@ while ($data = $posts->fetch())
                             <h5 class="card-header"><?= $data['title'] ?></h5>
                             <div class="card-body">
                                 <p class="card-text"><?= $data['sample'] ?></p><br>
-                                <div class="d-flex justify-content-between">
-                                    <a href="index.php?action=post&amp;id=<?= $data['id'] ?>" class="btn btn-primary">Lire le chapitre &rarr;</a>
-                                    <button><a href="index.php?action=admin&amp;edit=<?= $data['id']; ?>"<strong>Modifier</strong></a> </button>
-                                    <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?> #post-comment" >Commentaires</a></em>
+                                <div class="d-flex justify-content-between flex-wrap ">
+                                    <a href="index.php?action=post&amp;id=<?= $data['id'] ?>" class="btn btn-primary d-flex bd-highlight mb-2">Lire le chapitre &rarr;</a>
+                                    <a href="index.php?action=admin&amp;edit=<?= $data['id']; ?>"class="btn btn-outline-info d-flex bd-highlight mb-2">Modifier</a>
+                                    <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?> #post-comment" class="btn btn-outline-secondary d-flex bd-highlight mb-2">Commentaires</a></em>
                                 </div>
                             </div>
                             <div class="card-footer text-muted">
@@ -76,20 +76,16 @@ while ($data = $posts->fetch())
         </div>
     </div>
 </div>
-
 <?php
 }
 $posts->closeCursor();
 ?>
-<div>
-    <ul class="pagination justify-content-center mb-4">
-        <li class="page-item disabled">
-            <a class="page-link" href="#">&larr; Derniers parus</a>
-        </li>
-        <li class="page-item">
-            <a class="page-link" href="#">Anciens chapitres &rarr;</a>
-        </li>
-    </ul>
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="d-flex flex-row bd-highlight mb-3 bd-highlight adminView--btn-all-chapters">
+            <a href=""index.php?action=listPosts" class="btn btn-info btn-lg active" role="button" aria-pressed="true">VOIR TOUS LES CHAPITRES</a>
+        </div>
+    </div>
 </div>
 <?php $content = ob_get_clean(); ?>
 <?php ob_end_flush(); ?>

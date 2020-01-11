@@ -14,7 +14,7 @@
 <?php
 while ($reportComment = $getReportCom->fetch())
 {
-    ?>
+?>
     <p><strong><?= htmlspecialchars($reportComment['author']) ?></strong> a posté le <?= $reportComment['comment_date_fr'] ?></p>
     <div>
         <p><?= nl2br(htmlspecialchars($reportComment['comment'])) ?></p>
@@ -25,8 +25,9 @@ while ($reportComment = $getReportCom->fetch())
             <button type="submit" name="deleteComment" class="btn btn-danger">Supprimer</button>
         </form>
     </div>
-    <?php
+<?php
 }
+$getReportCom->closeCursor();
 ?>
 <?php $content = ob_get_clean(); ?>
 

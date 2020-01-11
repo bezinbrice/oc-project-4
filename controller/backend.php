@@ -99,9 +99,9 @@ function deleteComment($commentId){
 function getReportComments(){
     $adminPostManager = new \OpenClassrooms\oc_project_4\Model\AdminPostManager();
     $getReportCom = $adminPostManager->getReportComments();
-    if (!isset ($getReportCom)) {
+    if (!isset($getReportCom)) {
         throw new Exception("Impossible d'afficher la page !");
-    } elseif(!$getReportCom->fetch()){
+    } elseif($getReportCom == false){
         $_SESSION['msg'] = "Aucun commentaire n'a été signalé !";
     }
 

@@ -53,7 +53,7 @@ class AdminPostManager extends Manager
 
     public function getReportComments(){
         $db = $this->dbConnect();
-        $getReportCom = $db->prepare("SELECT comments.comment_id, comments.author, comments.comment, posts.id, posts.title, posts.content, DATE_FORMAT(comment_date, '%d/%m/%Y à %Hh%imin%ss') AS comment_date_fr, comments.report  FROM comments INNER JOIN posts ON comments.post_id = posts.id WHERE comments.report = 1 ORDER BY comment_date DESC" );
+        $getReportCom = $db->prepare("SELECT comments.comment_id, comments.author, comments.comment, posts.id, posts.title, posts.content, DATE_FORMAT(comments.comment_date, '%d/%m/%Y à %Hh%imin%ss') AS comment_date_fr, comments.report  FROM comments INNER JOIN posts ON comments.post_id = posts.id WHERE comments.report=1 ORDER BY comments.comment_date DESC" );
         $getReportCom->execute();
         return $getReportCom;
     }

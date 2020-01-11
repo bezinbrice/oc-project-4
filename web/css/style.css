@@ -23,8 +23,7 @@
 }
 .title-gray-shadow{
     text-align:center;
-    color: gray;
-    text-shadow:2px 2px darkslategray;
+    color: black;
 }
 h3
 {
@@ -58,13 +57,12 @@ a
     padding-top: 3.5%;
 }
 
-            /* ADMIN PAGE */
-
+                /* ADMIN PAGE */
 .admin-hero{
     background-image: url('../images/chap-img-1.jpg');
     background-position: right;
     background-repeat: no-repeat;
-    margin-bottom: 5%;
+    margin-bottom: 2.5%;
 }
 
 .admin-hero--container{
@@ -96,3 +94,71 @@ a
     margin-bottom: 3%;
     text-align: center;
 }
+
+.adminView--btn-all-chapters{
+    text-align: center!important;
+    margin-bottom: 2%!important;
+}
+
+.bd-highlight{
+    margin: auto;
+}
+
+                /* UPDATE POST VIEW PAGE */
+.updatePostView--form{
+    margin: 3% 0;
+}
+
+.updatePostView--form--content{
+    margin-top: 1%;
+}
+
+.updatePostView--form--btns{
+    margin-top: 2%;
+}
+
+.updatePostView--form--btns--edit{
+    margin-right: 1%;
+}
+
+.updatePostView--banner{
+    background-image: url('../images/admin-hero.png');
+    background-repeat: no-repeat;
+}
+
+                /* TINY MCE */
+.tox-tinymce{
+    width:900px;
+}
+
+                /* LIST POSTS VIEW PAGE */
+.banner-listPostsView{
+    background-image: url('../images/hero-chapters.jpg');
+    background-position: 50% 65%;
+    background-repeat: no-repeat;
+}
+
+.banner-listPostsView--text{
+    text-align:right;
+    color: black;
+    text-shadow: 2px 2px #d5d5d5;
+}
+
+.banner-listPostsView--blockquote{
+    text-shadow: 1px 1px #d5d5d5;
+
+}
+
+                /*POST VIEW PAGE */
+.postView--link-return--btn{
+    margin: 1%;
+}
+
+.postView--form-comment{
+    margin-bottom: 3%;
+}
+
+.postView--comment-msg{
+    margin-bottom: 3%!important;
+}
+
