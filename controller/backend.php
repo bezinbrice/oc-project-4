@@ -101,6 +101,8 @@ function getReportComments(){
     $getReportCom = $adminPostManager->getReportComments();
     if (!isset ($getReportCom)) {
         throw new Exception("Impossible d'afficher la page !");
+    } elseif($getReportCom == false){
+        $_SESSION['msg'] = "Aucun commentaire n'a été signalé !";
     }
 
     require('view/frontend/adminCommentaryView.php');
@@ -114,6 +116,18 @@ function cancelReport($commentId){
     }
     else {
         $_SESSION['msg'] = "Le commentaire a été épargné !";
+        header('Location: index.php?action=reports');
+    }
+}
+
+function moderateComment($commentId){
+    $adminPostManager = new \OpenClassrooms\oc_project_4\Model\AdminPostManager();
+    $mod = $adminPostManager->moderateComment($commentId);
+    if (!isset ($mod)) {
+        throw new Exception("Impossible d'annuler le signalement !");
+    }
+    else {
+        $_SESSION['msg'] = "Le commentaire a été modéré";
         header('Location: index.php?action=reports');
     }
 }

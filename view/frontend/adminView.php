@@ -2,12 +2,11 @@
 
 <?php ob_start(); ?>
 <div class="admin-hero">
-    <div class="container">
+    <div class="container admin-hero--container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Le blog de JeanJean !</h1>
-                <p>Espace administrateur</p>
-                <p><a href="index.php" >Quitter la page d'administration</a></p>
+                <h1 class="display-4 title-white-shadow">Espace administrateur</h1>
+                <p><a href="index.php" class="text-monospace text-decoration-none admin--quit-page-link">Quitter la page d'administration</a></p>
                 <?php if(isset($_SESSION['msg'])): ?>
                     <div id="message">
                         <?php
@@ -33,14 +32,20 @@
                         <?php if ($nbReport['nbreports'] > 0): ?>
                         <a href="index.php?action=reports" class="btn btn-info btn-lg active" role="button" aria-pressed="true">Commentaires Signalés <span class="badge badge-light"><?=$nbReport['nbreports']?></span></a> <!-- Nous permet d'obtenir le nombre de commentaires signalés-->
                         <?php else: ?>
-                        <a href="index.php?action=admin" class="btn btn-success btn-lg active" role="button" aria-pressed="true">Aucune notification <span class="badge badge-light"><?=$nbReport['nbreports']?></span></a>
+                        <a href="index.php?action=reports" class="btn btn-success btn-lg active" role="button" aria-pressed="true">Aucune notification <span class="badge badge-light"><?=$nbReport['nbreports']?></span></a>
                         <?php endif ?>
                     </div>
             </div>
         </div>
     </div>
 </div>
-
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="admin--old-chapter">Anciens chapitres parus</h2>
+        </div>
+    </div>
+</div>
 <?php
 while ($data = $posts->fetch())
 {
@@ -57,7 +62,7 @@ while ($data = $posts->fetch())
                                 <p class="card-text"><?= $data['sample'] ?></p><br>
                                 <div class="d-flex justify-content-between">
                                     <a href="index.php?action=post&amp;id=<?= $data['id'] ?>" class="btn btn-primary">Lire le chapitre &rarr;</a>
-                                    <button><a href="index.php?action=admin&amp;edit=<?= $data['id']; ?>"<strong>Modifier</strong></a> </button>
+                                    <button type="button" class="btn btn-outline-info"><a href="index.php?action=admin&amp;edit=<?= $data['id']; ?>"<strong>Modifier</strong></a> </button>
                                     <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?> #post-comment" >Commentaires</a></em>
                                 </div>
                             </div>
@@ -71,11 +76,13 @@ while ($data = $posts->fetch())
         </div>
     </div>
 </div>
-
 <?php
 }
 $posts->closeCursor();
 ?>
+<div>
+    <a href=""index.php?action=listPosts" class="btn btn-info btn-lg active" role="button" aria-pressed="true">VOIR TOUS LES CHAPITRES</a>
+</div>
 <?php $content = ob_get_clean(); ?>
 <?php ob_end_flush(); ?>
 

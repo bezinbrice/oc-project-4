@@ -6,15 +6,26 @@ try {
     if (isset($_GET['action'])) {
         switch ($_GET['action']) {
             case('listPosts'):
-                listPosts();
+                $nb_posts_page= 5;
+                $nb_posts = totalPosts();
+                $nb_page = ceil($nb_posts/$nb_posts_page);
+
+                if (isset ($_GET['page'])) {
+                    $actualPage=intval($_GET['page']);
+                    if ($actualPage>=$nb_page) {
+                        $actualPage=$nb_page;
+                    }
+                    listPosts($actualPage,$nb_posts_page, $nb_page);
+                } else {
+                    $actualPage=1;
+                    listPosts($actualPage, $nb_posts_page, $nb_page);
+                }
                 break;
 
             case('post'):
                 if (isset($_GET['id']) && $_GET['id'] > 0) {
                     post();
-                } /**elseif ( $_GET['comment_id'] && $_GET['post_id']){
-                report($_GET['comment_id'], $_GET['post_id']);
-            } */else{
+                } else {
                     throw new Exception('aucun identifiant de billet envoyé');
                 }
                 break;
@@ -37,6 +48,8 @@ try {
                         deleteComment($_GET['comment_id']);
                     } elseif(isset($_SESSION['admin']) && isset($_POST['cancelReport'])){
                         cancelReport($_GET['comment_id']);
+                    } elseif(isset($_SESSION['admin']) && isset($_POST['moderateComment'])){
+                        moderateComment($_GET['comment_id']);
                     }
                 break;
 

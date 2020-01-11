@@ -14,18 +14,20 @@
 <?php
 while ($reportComment = $getReportCom->fetch())
 {
-    ?>
+?>
     <p><strong><?= htmlspecialchars($reportComment['author']) ?></strong> a posté le <?= $reportComment['comment_date_fr'] ?></p>
     <div>
         <p><?= nl2br(htmlspecialchars($reportComment['comment'])) ?></p>
         <p>Ce commentaire a été posté sur le chapitre : <?= $reportComment['title'] ?></p>
         <form action="index.php?action=report&amp;comment_id=<?= $reportComment['comment_id'] ?>&amp;post_id=<?= $reportComment['id'] ?>" method="post">
             <button type="submit" name="cancelReport" class="btn btn-success">Annuler le signalement</button>
+            <button type="submit" name="moderateComment" class="btn btn-warning">Modérer le commentaire</button>
             <button type="submit" name="deleteComment" class="btn btn-danger">Supprimer</button>
         </form>
     </div>
-    <?php
+<?php
 }
+$getReportCom->closeCursor();
 ?>
 <?php $content = ob_get_clean(); ?>
 
