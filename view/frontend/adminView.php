@@ -1,12 +1,11 @@
 <?php $titleSite = 'Page Admin'; ?>
-
 <?php ob_start(); ?>
 <div class="admin-hero">
     <div class="container admin-hero--container">
         <div class="row">
             <div class="col-md-12">
                 <h1 class="display-4 title-white-shadow">Espace administrateur</h1>
-                <p><a href="index.php" class="text-monospace text-decoration-none admin--quit-page-link">Quitter la page d'administration</a></p>
+                <p><a href="index.php?logout" class="text-monospace text-decoration-none admin--quit-page-link">Quitter la page d'administration</a></p>
                 <?php if(isset($_SESSION['msg'])): ?>
                     <div id="message">
                         <?php
@@ -60,7 +59,7 @@ while ($data = $posts->fetch())
                             <h5 class="card-header"><?= $data['title'] ?></h5>
                             <div class="card-body">
                                 <p class="card-text"><?= $data['sample'] ?></p><br>
-                                <div class="d-flex justify-content-between flex-wrap ">
+                                <div class="d-flex justify-content-between flex-wrap">
                                     <a href="index.php?action=post&amp;id=<?= $data['id'] ?>" class="btn btn-primary d-flex bd-highlight mb-2">Lire le chapitre &rarr;</a>
                                     <a href="index.php?action=admin&amp;edit=<?= $data['id']; ?>"class="btn btn-outline-info d-flex bd-highlight mb-2">Modifier</a>
                                     <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?> #post-comment" class="btn btn-outline-secondary d-flex bd-highlight mb-2">Commentaires</a></em>
@@ -83,7 +82,7 @@ $posts->closeCursor();
 <div class="container">
     <div class="row d-flex justify-content-center">
         <div class="d-flex flex-row bd-highlight mb-3 bd-highlight adminView--btn-all-chapters">
-            <a href=""index.php?action=listPosts" class="btn btn-info btn-lg active" role="button" aria-pressed="true">VOIR TOUS LES CHAPITRES</a>
+            <a href="index.php?action=listPosts" class="btn btn-info btn-lg active" role="button" aria-pressed="true">VOIR TOUS LES CHAPITRES</a>
         </div>
     </div>
 </div>

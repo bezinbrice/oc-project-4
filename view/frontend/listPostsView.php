@@ -1,4 +1,4 @@
-<?php $titleSite = 'Le blog de Jean'; ?>
+<?php $titleSite = 'Billet pour l\'Alaska - Chapitres'; ?>
 <?php ob_start(); ?>
 <div class="banner-listPostsView jumbotron">
     <div class="container">
@@ -26,12 +26,12 @@
                     <h5 class="card-header"><?= $data['title'] ?></h5>
                     <div class="card-body">
                         <p class="card-text"><?= $data['content'] ?></p>
-                        <div  class="d-flex justify-content-between">
-                            <a href="index.php?action=post&amp;id=<?= $data['id'] ?>" class="btn btn-info">Lire le chapitre &rarr;</a>
+                        <div  class="d-flex justify-content-between flex-wrap">
+                            <a href="index.php?action=post&amp;id=<?= $data['id'] ?>" class="btn btn-info d-flex bd-highlight mb-2">Lire le chapitre &rarr;</a>
                             <?php if(isset($_SESSION['admin'])): ?>
-                            <a href="index.php?action=admin&amp;edit=<?= $data['id']; ?>" class="btn btn-info">Modifier</a>
+                            <a href="index.php?action=admin&amp;edit=<?= $data['id']; ?>" class="btn btn-info d-flex bd-highlight mb-2">Modifier</a>
                             <?php endif ?>
-                            <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?> #post-comment" >Commentaires</a></em>
+                            <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?> #post-comment" class="btn btn-outline-secondary d-flex bd-highlight mb-2">Commentaires</a></em>
                         </div>
                     </div>
                     <div class="card-footer text-muted">

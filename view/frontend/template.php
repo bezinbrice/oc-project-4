@@ -39,13 +39,15 @@
     </section>
     <footer class="py-5 bg-light">
         <div class="container">
-            <p class="m-0 text-center text-black">Copyright &copy; Billet pour l'Alaska, Jean Forteroche 2019</p>
-            <form action="index.php?action=admin" method="post">
-                <p>
-                    <input type="password" name="password" />
-                    <input type="submit" value="Admin" />
-                </p>
-            </form>
+            <div class="row d-flex justify-content-around">
+                <form action="index.php?action=admin" method="post">
+                    <p>
+                        <input type="password" name="password" />
+                        <input type="submit" value="Admin" />
+                    </p>
+                </form>
+                <p class="m-0 text-center text-black">Copyright &copy; Billet pour l'Alaska, Jean Forteroche 2019</p>
+            </div>
         </div>
     </footer>
         <script src="https://cdn.tiny.cloud/1/t8coht1jffvhbm4i2s2n4i1udvrqmtvskv1fbl1gch9j1a45/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>

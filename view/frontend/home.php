@@ -1,5 +1,4 @@
-<?php $titleSite = 'Le blog de Jean'; ?>
-<?php  unset ($_SESSION['admin']);?>
+<?php $titleSite = 'Billet simple pour l\'Alaska'; ?>
 <?php ob_start(); ?>
 <div id="background-home">
     <div class="container">
@@ -31,7 +30,7 @@
                             <p class="card-text"><?= $data['sample'] ?></p><br/>
                             <div  class="d-flex justify-content-between">
                                 <a href="index.php?action=post&amp;id=<?= $data['id'] ?>" class="btn btn-primary">Lire le chapitre &rarr;</a>
-                                <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?> #post-comment" >Commentaires</a></em>
+                                <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?> #post-comment" class="btn btn-outline-secondary" >Commentaires</a></em>
                             </div>
                         </div>
                     </div>

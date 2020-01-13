@@ -122,8 +122,13 @@ a
 }
 
 .updatePostView--banner{
-    background-image: url('../images/admin-hero.png');
+    background-image: url('../images/updateview.jpg');
     background-repeat: no-repeat;
+    background-position: 50% 60%;
+}
+
+.updatePostView--title{
+    color: white;
 }
 
                 /* TINY MCE */
@@ -160,5 +165,16 @@ a
 
 .postView--comment-msg{
     margin-bottom: 3%!important;
+}
+
+/* LIST POSTS VIEW PAGE */
+.errorView--banner {
+    background-image: url('../images/chap-img-4.jpg');
+    background-position: 50% 58%;
+    background-repeat: no-repeat;
+}
+
+.errorView--text{
+    color:black;
 }
 

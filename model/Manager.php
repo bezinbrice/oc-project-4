@@ -4,14 +4,14 @@ namespace OpenClassrooms\oc_project_4\Model;
 
 class Manager
 {
-    private $servername = "localhost:3308";
-    private $dbname = "oc4";
-    private $username = "root";
-    private $password = "root";
-
     protected function dbConnect()
     {
-        $db = new \PDO('mysql:host=localhost:3308;dbname=oc4;charset=utf8', 'root', 'root');
+        $servername = "mysql:dbname=dbs262125;host=db5000268649.hosting-data.io";
+        $username = "dbu334357";
+        $password = "ZtnaG-1%3Am!";
+        $options = array(\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',);
+
+        $db = new \PDO($servername, $username, $password, $options);
         return $db;
     }
 }

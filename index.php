@@ -79,13 +79,7 @@ try {
                                     deletePost($_GET['edit']);
                                     throw new Exception('Tous les champs ne sont pas remplis !');
                                 }
-                            }/** elseif(isset($_POST['reports'])){
-                                $db = new \PDO('mysql:host=localhost:3308;dbname=oc4;charset=utf8', 'root', 'root');
-                                $getReportCom = $db->prepare("SELECT id, author, comment, DATE_FORMAT(comment_date, '%d/%m/%Y à %Hh%imin%ss') AS comment_date_fr, report  FROM comments WHERE report = 1 ORDER BY comment_date DESC" );
-                                $getReportCom->execute();
-                                require('view/frontend/adminCommentaryView.php');
-                                header('Location: index.php?action=admin&adminCommentaryView');
-                            } */
+                            }
                         } else {
                         throw new Exception('Espace réservé à l\'administrateur');
                     }
@@ -99,6 +93,10 @@ try {
                 }
                 break;
         }
+    }
+    elseif(isset($_GET['logout'])){
+        unset ($_SESSION['admin']);
+        home();
     }
     else {
         home();

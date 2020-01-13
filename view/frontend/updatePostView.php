@@ -1,12 +1,11 @@
-<?php $title = "Modification"; ?>
-
+<?php $titleSite = 'Modification'; ?>
 <?php ob_start(); ?>
 <div class="updatePostView--banner jumbotron">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="display-4">Modification</h1>
-                <a href="index.php?action=admin" class="btn btn-outline-info">Retour à la page d'administration</a>
+                <h1 class="display-4 updatePostView--title">MODIFICATION</h1>
+                <a href="index.php?action=admin" class="btn btn-info">Retour à la page d'administration</a>
                 <div class="updatePostView--form">
                     <form action="index.php?action=admin&amp;edit=<?= $postUpdate['id']; ?>" method="post">
                         <input type="hidden" name="id" value="<?= $postUpdate['id']; ?>"/>
@@ -17,8 +16,8 @@
                             <textarea id="content" name="content" class="updatePostView--form--content"><?= nl2br(htmlspecialchars($postUpdate['content'])); ?></textarea>
                         </div>
                         <div class="input-group updatePostView--form--btns">
-                            <button type="submit" name="update" class="btn btn-warning updatePostView--form--btns--edit">Éditer</button>
-                            <button type="submit" name="delete" class="btn btn-danger updatePostView--form--btns--delete">Supprimer</button>
+                            <button type="submit" name="update" class="btn btn-warning updatePostView--form--btns--edit" onclick="return confirm('Êtes-vous sûr de vouloir modifier le chapitre?')">Éditer</button>
+                            <button type="submit" name="delete" class="btn btn-danger updatePostView--form--btns--delete" onclick="return confirm('Êtes-vous sûr de vouloir effacer le chapitre?')">Supprimer</button>
                         </div>
                     </form>
                 </div>
