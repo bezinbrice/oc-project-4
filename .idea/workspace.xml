@@ -52,10 +52,10 @@
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\wamp64\www\oc-project-4\web" />
+      <recent name="D:\wamp64\www\oc-project-4\vendor" />
+      <recent name="D:\wamp64\www\oc-project-4\view\backend" />
       <recent name="D:\wamp64\www\oc-project-4\web\css" />
       <recent name="D:\wamp64\www\oc-project-4" />
-      <recent name="D:\wamp64\www\oc-project-4\view\frontend" />
-      <recent name="D:\wamp64\www\oc-project-4\model" />
     </key>
   </component>
   <component name="ServiceViewManager">
@@ -88,7 +88,7 @@
       <workItem from="1576344262675" duration="78129000" />
       <workItem from="1577171729670" duration="1210000" />
       <workItem from="1577346073740" duration="44790000" />
-      <workItem from="1577787753737" duration="172296000" />
+      <workItem from="1577787753737" duration="180289000" />
     </task>
     <servers />
   </component>
@@ -112,16 +112,24 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="309" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1578331487872" />
+    <state x="526" y="215" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1578993456377">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="526" y="215" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1578993456377" />
     <state width="189" height="457" key="HiddenNamespacesPopup" timestamp="1578329216217">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="189" height="457" key="HiddenNamespacesPopup/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1578329216217" />
     <state width="189" height="457" key="HiddenNamespacesPopup/0.0.1536.824@0.0.1536.824" timestamp="1577884782280" />
-    <state x="563" y="365" key="NewPhpFileDialog" timestamp="1578128316434">
+    <state x="574" y="226" key="NewPhpClassDialog" timestamp="1578988569577">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="574" y="226" key="NewPhpClassDialog/0.0.1536.824@0.0.1536.824" timestamp="1578988569577" />
+    <state x="563" y="365" key="NewPhpFileDialog" timestamp="1578992540101">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="563" y="365" key="NewPhpFileDialog/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1578128316434" />
-    <state x="563" y="365" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1576601983635" />
+    <state x="563" y="365" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1578992540101" />
     <state x="546" y="56" key="SettingsEditor" timestamp="1576344276932">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

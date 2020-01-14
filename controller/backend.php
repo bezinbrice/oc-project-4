@@ -3,6 +3,7 @@
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
 require_once('model/AdminPostManager.php');
+require_once('model/AdminCommentManager.php');
 
 function isAdmin(){
     if(!isset ($_SESSION['admin'])){
@@ -18,10 +19,10 @@ function isAdmin(){
 function admin(){
     $postManager = new \OpenClassrooms\oc_project_4\Model\PostManager();
     $posts = $postManager->getPostsSample();
-    $adminPostManager = new \OpenClassrooms\oc_project_4\Model\AdminPostManager();
-    $nbReport = $adminPostManager->countReport();
+    $adminCommentManager = new \OpenClassrooms\oc_project_4\Model\AdminCommentManager();
+    $nbReport = $adminCommentManager->countReport();
 
-    require('view/frontend/adminView.php');
+    require('view/backend/adminView.php');
 }
 
 function createPost($title, $content){
@@ -46,7 +47,7 @@ function getPostToUpdate($id){
     $adminPostManager = new \OpenClassrooms\oc_project_4\Model\AdminPostManager();
     $postUpdate = $adminPostManager->getPostToUpdate($id);
 
-    require('view/frontend/updatePostView.php');
+    require('view/backend/updatePostView.php');
 }
 
 
@@ -85,8 +86,8 @@ function deletePost($id){
 }
 
 function deleteComment($commentId){
-    $adminPostManager = new \OpenClassrooms\oc_project_4\Model\AdminPostManager();
-    $deleteCom = $adminPostManager->deleteComment($commentId);
+    $adminCommentManager = new \OpenClassrooms\oc_project_4\Model\AdminCommentManager();
+    $deleteCom = $adminCommentManager->deleteComment($commentId);
     if (!isset ($deleteCom)) {
         throw new Exception("Impossible d'effacer le post !");
     }
@@ -97,20 +98,20 @@ function deleteComment($commentId){
 }
 
 function getReportComments(){
-    $adminPostManager = new \OpenClassrooms\oc_project_4\Model\AdminPostManager();
-    $getReportCom = $adminPostManager->getReportComments();
+    $adminCommentManager = new \OpenClassrooms\oc_project_4\Model\AdminCommentManager();
+    $getReportCom = $adminCommentManager->getReportComments();
     if (!isset($getReportCom)) {
         throw new Exception("Impossible d'afficher la page !");
     } elseif($getReportCom == false){
         $_SESSION['msg'] = "Aucun commentaire n'a été signalé !";
     }
 
-    require('view/frontend/adminCommentaryView.php');
+    require('view/backend/adminCommentaryView.php');
 }
 
 function cancelReport($commentId){
-    $adminPostManager = new \OpenClassrooms\oc_project_4\Model\AdminPostManager();
-    $report = $adminPostManager->cancelReport($commentId);
+    $adminCommentManager = new \OpenClassrooms\oc_project_4\Model\AdminCommentManager();
+    $report = $adminCommentManager->cancelReport($commentId);
     if (!isset ($report)) {
         throw new Exception("Impossible d'annuler le signalement !");
     }
@@ -121,8 +122,8 @@ function cancelReport($commentId){
 }
 
 function moderateComment($commentId){
-    $adminPostManager = new \OpenClassrooms\oc_project_4\Model\AdminPostManager();
-    $mod = $adminPostManager->moderateComment($commentId);
+    $adminCommentManager = new \OpenClassrooms\oc_project_4\Model\AdminCommentManager();
+    $mod = $adminCommentManager->moderateComment($commentId);
     if (!isset ($mod)) {
         throw new Exception("Impossible d'annuler le signalement !");
     }
