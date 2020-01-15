@@ -8,7 +8,7 @@ class Manager
     {
         $servername = "mysql:dbname=dbs262125;host=db5000268649.hosting-data.io";
         $username = "dbu334357";
-        $password = "ZtnaG-1%3Am!";
+        $password = "*********";
         $options = array(\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',);
 
         $db = new \PDO($servername, $username, $password, $options);
