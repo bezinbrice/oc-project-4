@@ -7,7 +7,7 @@
                 <h1 class="display-4 updatePostView--title">MODIFICATION</h1>
                 <a href="index.php?action=admin" class="btn btn-info">Retour à la page d'administration</a>
                 <div class="updatePostView--form">
-                    <form action="index.php?action=admin&amp;edit=<?= $postUpdate['id']; ?>" method="post">
+                    <form action="index.php?action=admin&amp;edit=<?= $postUpdate['id'] . "&token=" . $_SESSION['token']; ?>" method="post">
                         <input type="hidden" name="id" value="<?= $postUpdate['id']; ?>"/>
                         <div class="input-group">
                             <input type="text" id="title" name="title" value="<?= htmlspecialchars($postUpdate['title']); ?>" placeholder="Enter your title"/>

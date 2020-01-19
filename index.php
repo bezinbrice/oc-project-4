@@ -2,6 +2,15 @@
 require('controller/frontend.php');
 require('controller/backend.php');
 session_start();
+$inactive = 3600;
+if(isset ($_SESSION['timeout'])){
+    $session_life = time() - $_SESSION['timeout'];
+    if($session_life > $inactive) {
+        unset ($_SESSION['admin']);
+        unset ($_SESSION['token']);
+    }
+}
+$_SESSION['timeout']=time();
 try {
     if (isset($_GET['action'])) {
         switch ($_GET['action']) {
@@ -44,11 +53,11 @@ try {
 
             case('report'):
                     report($_GET['comment_id'], $_GET['post_id']);
-                    if(isset($_SESSION['admin']) && isset($_POST['deleteComment'])){
+                    if(isset($_SESSION['admin']) && isset($_POST['deleteComment']) && isset($_GET['token']) && ($_GET['token'] == $_SESSION['token'])){
                         deleteComment($_GET['comment_id']);
-                    } elseif(isset($_SESSION['admin']) && isset($_POST['cancelReport'])){
+                    } elseif(isset($_SESSION['admin']) && isset($_POST['cancelReport']) && isset($_GET['token']) && ($_GET['token'] == $_SESSION['token'])){
                         cancelReport($_GET['comment_id']);
-                    } elseif(isset($_SESSION['admin']) && isset($_POST['moderateComment'])){
+                    } elseif(isset($_SESSION['admin']) && isset($_POST['moderateComment']) && isset($_GET['token']) && ($_GET['token'] == $_SESSION['token'])){
                         moderateComment($_GET['comment_id']);
                     }
                 break;
@@ -68,14 +77,14 @@ try {
                                 }
                             } elseif (isset($_GET['edit'])){
                                 getPostToUpdate($_GET['edit']);
-                                if (isset($_POST['update'])) {
+                                if (isset($_POST['update']) && isset($_GET['token']) && ($_GET['token'] == $_SESSION['token'])) {
                                     if (!empty($_POST['title']) && !empty($_POST['content'])) {
                                         updatePost($_GET['edit'],$_POST['title'], $_POST['content']);
                                     }
                                     else {
                                         throw new Exception('Tous les champs ne sont pas remplis !');
                                     }
-                                }  elseif (isset($_POST['delete'])){
+                                }  elseif (isset($_POST['delete']) && isset($_GET['token']) && ($_GET['token'] == $_SESSION['token'])){
                                     deletePost($_GET['edit']);
                                     throw new Exception('Tous les champs ne sont pas remplis !');
                                 }
@@ -92,10 +101,22 @@ try {
                     throw new Exception('Espace réservé à l\'administrateur');
                 }
                 break;
+
+            case('authorView'):
+                authorPage();
+                break;
+
+            case('contactView'):
+                contactPage();
+                if(isset($_POST['submit'])){
+                    contactEmail($_POST['email'],$_POST['name'],$_POST['mesSubject'], $_POST['contentMessage']);
+                }
+                break;
         }
     }
     elseif(isset($_GET['logout'])){
         unset ($_SESSION['admin']);
+        unset ($_SESSION['token']);
         home();
     }
     else {

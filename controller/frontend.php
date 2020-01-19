@@ -60,3 +60,13 @@ function report($commentId, $postId)
 
     header('Location: index.php?action=post&id=' . $postId);
 }
+
+function authorPage()
+{
+    require('view/frontend/authorView.php');
+}
+
+function contactPage()
+{
+    require('view/frontend/contactView.php');
+}

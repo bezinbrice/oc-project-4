@@ -1,3 +1,9 @@
+@font-face
+{
+    font-family:'Roboto-Regular';
+    src:url('assets/fonts/Roboto-Regular.ttf');
+}
+
 #background-home{
     width:100%;
     background-image: url('../images/alaska-2964658_1920.jpg');
@@ -63,6 +69,10 @@ a
     background-position: right;
     background-repeat: no-repeat;
     margin-bottom: 2.5%;
+}
+
+.home--h2{
+    font-family:'Roboto-Regular';
 }
 
 .admin-hero--container{
@@ -140,6 +150,11 @@ a
     width:900px;
 }
 
+                /* ADMIN COMMENTARY PAGE */
+.adminCommentaryView--comment-container{
+    margin: 3% 0;
+}
+
                 /* LIST POSTS VIEW PAGE */
 .banner-listPostsView{
     background-image: url('../images/hero-chapters.jpg');
@@ -171,7 +186,7 @@ a
     margin-bottom: 3%!important;
 }
 
-/* LIST POSTS VIEW PAGE */
+                /* LIST POSTS VIEW PAGE */
 .errorView--banner {
     background-image: url('../images/chap-img-4.jpg');
     background-position: 50% 58%;
@@ -182,6 +197,44 @@ a
     color:black;
 }
 
+                /*AUTHOR PAGE*/
+.banner-authorView{
+    background-image: url('../images/knowledge-1052011_1920.jpg');
+    background-position: 50% 65%;
+    background-repeat: no-repeat;
+}
+
+.banner-authorView--text{
+    text-align:center;
+    color: black;
+    text-shadow: 2px 2px #d5d5d5;
+}
+
+.authorView--page--picture1{
+    width:50%;
+}
+
+.authorView--page--text{
+    margin: 3% 0;
+    font-size: 1.3em;
+}
+
+.authorView--page--title{
+    margin-top: 3%;
+}
+
+.authorView--page--blockquote{
+    color:black;
+}
+
+                /*CONTACT PAGE*/
+.banner-contactView{
+    background-image: url('../images/lamp-2903830_1920.jpg');
+    background-position: 50% 70%;
+    background-repeat: no-repeat;
+}
+
+                /*RESPONSIVE*/
 @media screen and (max-width: 768px){
     .news
     {
@@ -191,5 +244,9 @@ a
 
     .display-4{
         font-size: 3rem!important;
+    }
+
+    .authorView--page--picture1{
+        width:80%;
     }
 }

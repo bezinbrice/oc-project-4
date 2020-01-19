@@ -31,7 +31,7 @@
                             <?php if(isset($_SESSION['admin'])): ?>
                             <a href="index.php?action=admin&amp;edit=<?= $data['id']; ?>" class="btn btn-info d-flex mb-2">Modifier</a>
                             <?php endif ?>
-                            <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?> #post-comment" class="btn btn-outline-secondary d-flex mb-2">Commentaires</a></em>
+                            <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>#post-comment" class="btn btn-outline-secondary d-flex mb-2">Commentaires</a></em>
                         </div>
                     </div>
                     <div class="card-footer text-muted">

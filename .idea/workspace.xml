@@ -41,6 +41,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -63,12 +64,7 @@
       <list>
         <serviceView>
           <treeState>
-            <expand>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="root:@localhost-oc4" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </treeState>
         </serviceView>
@@ -88,7 +84,10 @@
       <workItem from="1576344262675" duration="78129000" />
       <workItem from="1577171729670" duration="1210000" />
       <workItem from="1577346073740" duration="44790000" />
-      <workItem from="1577787753737" duration="180289000" />
+      <workItem from="1577787753737" duration="181117000" />
+      <workItem from="1579250418064" duration="5856000" />
+      <workItem from="1579279284925" duration="15868000" />
+      <workItem from="1579419122165" duration="4946000" />
     </task>
     <servers />
   </component>
@@ -116,6 +115,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="526" y="215" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1578993456377" />
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1579087818604">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1579087818604" />
     <state width="189" height="457" key="HiddenNamespacesPopup" timestamp="1578329216217">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -125,27 +128,32 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="574" y="226" key="NewPhpClassDialog/0.0.1536.824@0.0.1536.824" timestamp="1578988569577" />
-    <state x="563" y="365" key="NewPhpFileDialog" timestamp="1578992540101">
+    <state x="563" y="365" key="NewPhpFileDialog" timestamp="1579254171595">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="563" y="365" key="NewPhpFileDialog/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1578128316434" />
-    <state x="563" y="365" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1578992540101" />
+    <state x="563" y="365" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1579254171595" />
     <state x="546" y="56" key="SettingsEditor" timestamp="1576344276932">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="546" y="56" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1576344276932" />
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1577787763403">
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1579279784307">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1577787763403" />
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1577171740335" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1579279784307" />
+    <state x="376" y="147" width="1251" height="808" key="dock-window-1" timestamp="1579338789476">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="376" y="147" width="1251" height="808" key="dock-window-1/0.0.1536.824@0.0.1536.824" timestamp="1579338789476" />
     <state x="425" y="187" key="run.anything.popup" timestamp="1577983267438">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1577983267438" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1578329324340">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1579281076035">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1578329324340" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1579281076035" />
   </component>
 </project>

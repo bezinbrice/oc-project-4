@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-12">
                 <h1 class="my-4 display-3 title-white-shadow">BILLET SIMPLE POUR L'ALASKA</h1>
-                <h2 class="title-white-shadow">Le nouveau best seller de Jean Forteroche directement en ligne</h2 class="">
+                <h2 class="title-white-shadow home--h2">Le nouveau best seller de Jean Forteroche directement en ligne</h2 class="">
                 <img src="web/images/gilbert-garcin-photographe-sur-le-tard.jpg" class="img-fluid rounded mx-auto d-block image-home-hero" alt="portrait de Gilbert Garcin">
                 <blockquote class="blockquote">
                     <p class="mb-0">Il n'est jamais trop tard pour changer.</p>
@@ -30,7 +30,7 @@
                             <p class="card-text"><?= $data['sample'] ?></p><br/>
                             <div  class="d-flex justify-content-between flex-wrap">
                                 <a href="index.php?action=post&amp;id=<?= $data['id'] ?>" class="btn btn-primary d-flex mb-2">Lire le chapitre &rarr;</a>
-                                <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?> #post-comment" class="btn btn-outline-secondary d-flex mb-2" >Commentaires</a></em>
+                                <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>#post-comment" class="btn btn-outline-secondary d-flex mb-2" >Commentaires</a></em>
                             </div>
                         </div>
                     </div>
