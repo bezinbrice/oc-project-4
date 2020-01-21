@@ -234,6 +234,12 @@ a
     background-repeat: no-repeat;
 }
 
+.banner-contactView--text{
+    text-align:center!important;
+    color: white!important;
+    text-shadow: 2px 2px black!important;
+}
+
                 /*RESPONSIVE*/
 @media screen and (max-width: 768px){
     .news

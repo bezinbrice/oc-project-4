@@ -1,12 +1,11 @@
 <?php $titleSite = 'Contact'; ?>
 <?php ob_start(); ?>
-
     <div class="banner-contactView jumbotron">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1 class="display-4 banner-authorView--text">PAGE CONTACT</h1>
-                    <h2 class="my-4 banner-authorView--text">UNE QUESTION ? N'HESITEZ PAS.</h2>
+                    <h1 class="display-4 banner-contactView--text">PAGE CONTACT</h1>
+                    <h2 class="my-4 banner-contactView--text">UNE QUESTION ? N'HESITEZ PAS.</h2>
                 </div>
             </div>
         </div>
@@ -61,9 +60,7 @@
                         <strong>Valerian's Books</strong><br>
                         79 rue de la perche<br>
                         Paris, 75002<br>
-                        <abbr title="Téléphone">
-                            T:</abbr>
-                        01 80 74 54 08
+                        <abbr title="Téléphone">T:</abbr> 01 80 74 54 08
                     </address>
                     <address>
                         <strong>Valerian's Books Email</strong><br>

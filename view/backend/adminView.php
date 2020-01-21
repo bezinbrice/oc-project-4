@@ -27,13 +27,13 @@
                         </div>
                     </form>
                 </div>
-                    <div>
-                        <?php if ($nbReport['nbreports'] > 0): ?>
-                        <a href="index.php?action=reports" class="btn btn-info btn-lg active" role="button" aria-pressed="true">Commentaires Signalés <span class="badge badge-light"><?=$nbReport['nbreports']?></span></a> <!-- Nous permet d'obtenir le nombre de commentaires signalés-->
-                        <?php else: ?>
-                        <a href="index.php?action=reports" class="btn btn-success btn-lg active" role="button" aria-pressed="true">Aucune notification <span class="badge badge-light"><?=$nbReport['nbreports']?></span></a>
-                        <?php endif ?>
-                    </div>
+                <div>
+                    <?php if ($nbReport['nbreports'] > 0): ?>
+                    <a href="index.php?action=reports" class="btn btn-info btn-lg active" role="button" aria-pressed="true">Commentaires Signalés <span class="badge badge-light"><?=$nbReport['nbreports']?></span></a> <!-- Nous permet d'obtenir le nombre de commentaires signalés-->
+                    <?php else: ?>
+                    <a href="index.php?action=reports" class="btn btn-success btn-lg active" role="button" aria-pressed="true">Aucune notification <span class="badge badge-light"><?=$nbReport['nbreports']?></span></a>
+                    <?php endif ?>
+                </div>
             </div>
         </div>
     </div>
